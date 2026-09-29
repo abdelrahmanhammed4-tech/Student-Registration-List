@@ -1,0 +1,268 @@
+
+:root {
+
+  --bg-main: #121820;
+
+  /* Cards & Surface Background */
+  --surface-card: #1c2430;
+
+  /* Brand Colors */
+  --primary-orange: #FC6C26;  /* Primary Accent & Hover States */
+  --primary-hover: #e55b17;   /* Slightly darker orange for active/hover */
+  --accent-cream: #FFF4D6;    /* Soft Cream for text, badges & key elements */
+  
+  --text-main: #FFF4D6;       /* Main Cream Text */
+  --text-dark: #121820;       /* Dark Text for inside cream buttons/elements */
+  --border-color: rgba(255, 244, 214, 0.15); /* Subtle border effect */
+
+  /* Status Badges (Pass / Fail) */
+  --pass-color: #34d399;
+  --pass-bg: rgba(52, 211, 153, 0.12);
+  --fail-color: #f87171;
+  --fail-bg: rgba(248, 113, 113, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  padding: 2.5rem 1rem;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.app-container {
+  width: 100%;
+  max-width: 1000px;
+}
+
+/* --- Header --- */
+.app-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.app-header h1 {
+  font-size: 2.3rem;
+  color: var(--primary-orange);
+  margin-bottom: 0.4rem;
+  letter-spacing: -0.5px;
+}
+
+/* --- Layout Grid --- */
+.main-content {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- Form Design --- */
+.form-section {
+  background: var(--surface-card);
+  padding: 2rem;
+  border-radius: 18px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  height: fit-content;
+}
+
+.form-section h2 {
+  font-size: 1.3rem;
+  color: var(--primary-orange);
+  margin-bottom: 1.5rem;
+}
+
+.input-group {
+  margin-bottom: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.input-group label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.input-group input {
+  padding: 0.8rem 1rem;
+  background-color: rgba(18, 24, 32, 0.7);
+  border: 1.5px solid var(--border-color);
+  border-radius: 10px;
+  font-size: 0.95rem;
+  color: var(--accent-cream);
+  outline: none;
+  transition: all 0.25s ease;
+}
+
+.input-group input::placeholder {
+  color: var(--text-main);
+  opacity: 0.4;
+}
+
+.input-group input:focus {
+  border-color: var(--primary-orange);
+  box-shadow: 0 0 0 3px rgba(252, 108, 38, 0.25);
+  background-color: rgba(18, 24, 32, 0.9);
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 0.95rem;
+  margin-top: 0.5rem;
+  background-color: var(--primary-orange);
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(252, 108, 38, 0.3);
+}
+
+button[type="submit"]:active {
+  transform: translateY(0);
+}
+
+/* Error Alert Banner */
+.error-banner {
+  background-color: var(--fail-bg);
+  color: var(--fail-color);
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+  border: 1px solid rgba(248, 113, 113, 0.3);
+}
+
+.hidden {
+  display: none;
+}
+
+/* --- Student Cards Grid --- */
+.list-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.list-header h2 {
+  font-size: 1.3rem;
+  color: var(--text-main);
+}
+
+.badge {
+  background: var(--surface-card);
+  color: var(--primary-orange);
+  padding: 0.35rem 0.9rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border: 1px solid var(--border-color);
+}
+
+.students-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 1.2rem;
+}
+
+.empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 3.5rem 1rem;
+  color: var(--text-main);
+  opacity: 0.6;
+  border: 2px dashed var(--border-color);
+  border-radius: 16px;
+}
+
+/* Individual Student Card */
+.student-card {
+  background: var(--surface-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 1.3rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  animation: fadeIn 0.3s ease;
+}
+
+.student-card .info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.student-card .info-label {
+  color: var(--text-main);
+  opacity: 0.7;
+}
+
+.student-card .info-value {
+  font-weight: 600;
+  color: var(--accent-cream);
+}
+
+.status-badge {
+  text-align: center;
+  padding: 0.5rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-top: 0.4rem;
+  letter-spacing: 0.5px;
+}
+
+.status-badge.passed {
+  background-color: var(--pass-bg);
+  color: var(--pass-color);
+  border: 1px solid rgba(52, 211, 153, 0.3);
+}
+
+.status-badge.failed {
+  background-color: var(--fail-bg);
+  color: var(--fail-color);
+  border: 1px solid rgba(248, 113, 113, 0.3);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

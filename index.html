@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Registration List</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="app-container">
+    <header class="app-header">
+      <h1>Student Registration</h1>
+    </header>
+
+    <main class="main-content">
+      <!-- Form Section -->
+      <section class="form-section">
+        <h2>Add New Student</h2>
+        
+        <div id="error-message" class="error-banner hidden"></div>
+
+        <form id="student-form" novalidate>
+          <div class="input-group">
+            <label for="student-name">Student Name</label>
+            <input type="text" id="student-name" placeholder="e.g. Ahmed">
+          </div>
+
+          <div class="input-group">
+            <label for="student-age">Age</label>
+            <input type="number" id="student-age" placeholder="e.g. 16" min="1">
+          </div>
+
+          <div class="input-group">
+            <label for="course-name">Course Name</label>
+            <input type="text" id="course-name" placeholder="e.g. JavaScript">
+          </div>
+
+          <div class="input-group">
+            <label for="student-grade">Grade (0 - 100)</label>
+            <input type="number" id="student-grade" placeholder="e.g. 85" min="0" max="100">
+          </div>
+
+          <button type="submit" id="add-btn">Add Student</button>
+        </form>
+      </section>
+
+      <!-- Students List Section -->
+      <section class="list-section">
+        <div class="list-header">
+          <h2>Student List</h2>
+          <span id="student-count" class="badge">0 Students</span>
+        </div>
+
+        <div id="students-grid" class="students-grid">
+          <div class="empty-state" id="empty-state">
+            <p>No students added yet.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
